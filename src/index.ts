@@ -216,7 +216,13 @@ const getActualTotal = async () => {
         const individualAmt = individual.get(val);
         const share = individualAmt!.toBn().mul(util.bnToBn(eraPayout.toString())).div(total);
 
-        const ledger = await api.query.staking.ledger(val);
+        const controller = await api.query.staking.bonded(val);
+        if (controller.isNone && curEraIndex !== 0) {
+          throw new Error("Stash doesn't have a controller");
+        } else if (curEraIndex === 0) {
+          continue;
+        }
+        const ledger = await api.query.staking.ledger(controller.unwrap());
         if (ledger.isNone) {
           console.log('No ledger found for:', val.toString());
         } else {
