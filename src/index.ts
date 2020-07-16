@@ -244,7 +244,13 @@ const getActualTotal = async () => {
     }
   }
 
-  console.log(totalUnclaimed.toString());
+  console.log('total issuance', await api.query.balances.totalIssuance());
+  console.log('total claims', await api.query.claims.total());
+
+  console.log('total unclaimed', totalUnclaimed.toString());
+  const reward = util.bnToBn(95754.12);
+  console.log('final', util.bnToBn(10000000).add(reward).sub(totalUnclaimed));
+
   console.log("Finished");
   process.exit(0);
 }
