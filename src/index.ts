@@ -205,6 +205,9 @@ const getActualTotal = async () => {
     try {
       console.log("Current era:", curEraIndex);
       const eraPayout = await api.query.staking.erasValidatorReward(curEraIndex);
+      if (eraPayout.isNone) {
+        break;
+      }
       console.log("Era payout:", eraPayout.toString());
       const erasPoints = await api.query.staking.erasRewardPoints(curEraIndex);
       const { total, individual } = erasPoints;
