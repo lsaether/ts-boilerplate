@@ -19,20 +19,20 @@
     "@typescript-eslint/eslint-plugin": "^3.6.1",
     "@typescript-eslint/parser": "^3.6.1",
     "ava": "^3.10.1",
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-security": "^1.4.0",
     "prettier": "^2.0.5",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@polkadot/api": "^1.24.1",
+    "@polkadot/api": "^1.25.1",
     "@polkadot/keyring": "^2.18.1",
     "@polkadot/util": "^2.18.1",
     "chalk": "^4.1.0",
-    "commander": "^5.1.0",
+    "commander": "^6.0.0",
     "winston": "^3.3.3"
   },
   "ava": {
